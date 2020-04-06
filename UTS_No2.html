@@ -57,6 +57,21 @@
         document.getElementById(lbl4).innerHTML = total;
         }
 
-       
+        function add(){
+        var counter = 0;
+        var arrayPeminjam = [];
+        arrayPeminjam.push(document.getElementById("txt0").value);
+        var arrayPinjaman = [];
+        arrayPinjaman.push(document.getElementById("txt1").value);
+        var arrayWaktu = [];
+        arrayWaktu.push(document.getElementById("txt2").value);
+        counter++;
+        
+        for(i = 0; i <= counter; i++){
+            document.getElementById(lbl1).innerHTML = arrayPeminjam;
+            document.getElementById(lbl2).innerHTML = arrayPinjaman;
+            document.getElementById(lbl3).innerHTML = arrayWaktu;
+        }
+       }
     </script>
 </html>
