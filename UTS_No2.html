@@ -8,25 +8,55 @@
         <title>KOPERASI</title>
     </head>
     <body>
+        
         <div data-role=page id="win1" data-theme="b">
             <h1>Input Data</h1>
+            Peminjam: <input type="text" id="txt0" name="txt">
+            <br>
             Jumlah Pinjaman: <input type="text" id="txt1" name="txt">
             <br>
             Waktu: <input type="text" id="txt2" name="txt">
-            <input type="button" id="btn1" name="btn" onclick="location.href='#win2'" value="INPUT">
+            <input type="button" id="btn1" name="btn" onclick="hitung()" value="INPUT">
+            <input type="button" id="btn1" name="btn" onclick="location.href='#win2'" value="NEXT">
             </div>
 
-            <div data-role=page id="win2" data-theme="b">
+            <div data-role=page id="win2" event="add()" data-theme="b">
                 <h1>Informasi Cicilan</h1>
-
+                Peminjam: <label id="lbl1"></label> 
+                Jumlah Peminjaman: <label id="lbl2"></label>
+                Waktu Pinjaman: <label id="lbl3"></label>
+                Total Peminjaman: <label id="lbl4"></label>
+                </ul>
                     <nav>
                         <ul>
-                            <a href=#win1>Prev</a>
+                            <a href=#win1>Kembali</a>
                         </ul>
                     </nav>
                 </div>
     </body>
     <script>
-        
+        function hitung(){
+        var jumlah;
+        var waktu;
+        var hasil;
+        var total;
+        jumlah = parseInt(document.getElementById("txt1").value);
+        waktu = parseInt(document.getElementById("txt2").value);
+        if(waktu <= 6){
+            hasil = jumlah * (2/100) * waktu;
+            total = (jumlah + hasil);
+        }
+        else if(waktu > 6 && waktu <= 12){
+            hasil = jumlah * (1.5/100) * waktu;
+            total = (jumlah + hasil);
+        }
+        else{
+            hasil = jumlah * (1/100) * waktu;
+            total = (jumlah + hasil);
+        }
+        document.getElementById(lbl4).innerHTML = total;
+        }
+
+       
     </script>
 </html>
